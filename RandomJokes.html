@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Jokes</title>
+    <style>
+         body {
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+        #joke-container {
+            margin:40px auto;
+            padding: 40px;
+            border: 3px solid rgb(114, 19, 19);
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+        }
+        #joke-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor:context-menu;
+        }
+        
+        #joke-button:active {
+            background-color: #003a73;
+            transform: scale(0.95);
+            animation: sparkle 0.3s ease-in-out;}
+
+        h3{
+            text-align:left;
+        }
+        @media (max-width: 600px) {
+            #joke-container {
+                padding: 10px;
+            }
+            #joke-button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body><br>
+   <h3>Created by <a href="https://aspiringcoders.com/">AspiringCoders!</a></h3>
+    <br><br>
+    <h2> Random Jokes Generator</h2>
+    <div id="joke-container">
+        <p id="joke-text">Click the button for a joke!</p>
+        <br>
+        <button id="joke-button">Get Joke</button>
+    </div>
+
+    <script>
+        const jokes = [
+            "Where do rabbits go after they get married? On a bunny-moon.",
+            "Why can't your nose be 12 inches long? Because then it'd be a foot!",
+            "Where do astronauts hang out after work? At the spacebar.",
+            'How do politicians say goodbye? "See you in the next campaign!"',
+            "Why don't skeletons ride roller coasters? They don't have the stomach for it.",
+            "New atoms frequently lose electrons when they fail to keep an ion them.",
+            "Why did the scarecrow win an award? Because he was outstanding in his field!",
+            "What did one wall say to the other wall? I'll meet you at the corner!",
+            'Why don\'t scientists trust atoms? Because they make up everything!',
+            "What do you call a factory that makes okay products? A satisfactory.",
+            'How do you organize a space party for kids? You "planet" and invite the stars!',
+            "What kind of tree fits in your hand? A palm tree!.",
+            "Why did the SQL query go to therapy? Because it had too many relationship issues.",
+            "Why did the computer catch a cold? Because it had too many windows open!",
+            "Why did the IT support specialist bring a ladder to the data center? Because he heard the data was on the cloud, and he needed to reach it!"
+        ];
+
+        const jokeText = document.getElementById('joke-text');
+        const jokeButton = document.getElementById('joke-button');
+
+        jokeButton.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * jokes.length);
+            const randomJoke = jokes[randomIndex];
+            jokeText.textContent = randomJoke;
+        });
+
+        // Display a random joke on page load
+        jokeButton.click();
+    </script>
+</body>
+</html>
